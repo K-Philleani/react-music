@@ -8,5 +8,8 @@ module.exports = {
       "@": resolve("src"),
       "components": resolve("src/components")
     }
-  }
+  },
+ style: {
+   
+ }
 }
