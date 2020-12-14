@@ -4,14 +4,18 @@ import routes from "./router"
 import MusicAppHeader from "@/components/app-header"
 import MusicAppFooter from "@/components/app-footer"
 import { HashRouter } from "react-router-dom"
+import { Provider } from 'react-redux'
+import store from '@/store'
 
 const App = memo(() => {
   return (
-    <HashRouter>
-      <MusicAppHeader />
-      {renderRoutes(routes)}
-      <MusicAppFooter />
-    </HashRouter>
+    <Provider store={store}>
+      <HashRouter>
+        <MusicAppHeader />
+        {renderRoutes(routes)}
+        <MusicAppFooter />
+      </HashRouter>
+    </Provider>
   );
 });
 
