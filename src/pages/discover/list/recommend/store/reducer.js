@@ -5,7 +5,7 @@ const defaultState = {
 }
 
 
-function reducer(state = defaultState, action) {
+function recommendReducer(state = defaultState, action) {
   switch(action.type) {
     case actionTypes.CHANGE_TOP_BANNERS:
       return {...state, topBanners: []}
@@ -14,4 +14,4 @@ function reducer(state = defaultState, action) {
   }
 }
 
-export default reducer
+export default recommendReducer

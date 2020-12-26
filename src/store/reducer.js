@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import { reducer as recommendReducer  } from '@/pages/discover/list/recommend/store'
+import recommendReducer from '@/pages/discover/list/recommend/store/reducer'
 
-const cReducer = combineReducers({
+const rootReducer = combineReducers({
   recommend: recommendReducer
 })
 
-export default cReducer
+export default rootReducer
