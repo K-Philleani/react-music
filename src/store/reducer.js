@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'
 import recommendReducer from '@/pages/discover/list/recommend/store/reducer'
 
 const rootReducer = combineReducers({

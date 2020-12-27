@@ -1,21 +1,12 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo } from 'react';
 import { DiscoverWrapper, TopMenu } from './style'
 import { dicoverMenu } from "@/common/local-data";
 import { NavLink } from 'react-router-dom'
 import { renderRoutes } from "react-router-config"
-import axios from '@/service/request'
 
 const Discover = memo((props) => {
   const { route } = props
 
-  useEffect(() => {
-    axios({
-      method: 'get',
-      url: "/banner"
-    }).then(res => {
-      console.log(res)
-    })
-  }, []);
   return (
     
      <DiscoverWrapper>

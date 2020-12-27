@@ -1,17 +1,21 @@
-import * as actionTypes from './constants'
+import { Map } from 'immutable'
 
-const defaultState = {
-  topBanners: []
+
+const defaultState = Map({
+  bannerList: []
+})
+
+
+const recommendReducer = (state = defaultState, action) => {
+   switch(action.type) {
+      case 'recommend/changeBannerList':
+        return state.set("bannerList", action.res.banners)
+      default:
+        return state
+    }
+
 }
 
 
-function recommendReducer(state = defaultState, action) {
-  switch(action.type) {
-    case actionTypes.CHANGE_TOP_BANNERS:
-      return {...state, topBanners: []}
-    default: 
-      return state
-  }
-}
 
 export default recommendReducer
