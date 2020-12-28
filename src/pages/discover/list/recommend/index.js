@@ -1,6 +1,9 @@
 import React, { memo } from 'react';
 import TopBanner from './components/TopBanner'
-import { RecommendWrapper } from './style'
+import { RecommendWrapper, Content, RecommendLeft, RecommendRight } from './style'
+import HotRecommend from './components/HotRecommend'
+import NewAlbum from './components/NewAlbum'
+import Ranking from './components/Ranking'
 
 
 const Recommend = props => {
@@ -17,6 +20,14 @@ const Recommend = props => {
   return (
     <RecommendWrapper>
       <TopBanner />
+      <Content className="wrap-v2">
+        <RecommendLeft>
+          <HotRecommend />
+          <NewAlbum />
+          <Ranking />
+        </RecommendLeft>
+        <RecommendRight></RecommendRight>
+      </Content>
     </RecommendWrapper>
   );
 }

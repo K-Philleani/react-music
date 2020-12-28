@@ -4,7 +4,6 @@ import { getBannerList } from '../../store/actionCreators'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Carousel } from 'antd'
 
-
 const TopBanner = () => {
   const dispatch = useDispatch()
   const recommendState = useSelector(state => ({
