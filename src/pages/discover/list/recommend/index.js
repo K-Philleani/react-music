@@ -1,25 +1,23 @@
-import React, { memo, useEffect } from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { getBannerList } from './store/actionCreators'
+import React, { memo } from 'react';
+import TopBanner from './components/TopBanner'
+import { RecommendWrapper } from './style'
 
 
 const Recommend = props => {
   
-  const dispatch = useDispatch()
-  const recommendstate = useSelector(state => ({
-    bannerList: state.getIn(["recommend", "bannerList"])
-  }), shallowEqual)
+  // const dispatch = useDispatch()
+  // const recommendstate = useSelector(state => ({
+  //   bannerList: state.getIn(["recommend", "bannerList"])
+  // }), shallowEqual)
 
-  useEffect(() => {
-    dispatch(getBannerList)
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(getBannerList)
+  // }, [dispatch])
   
   return (
-    <div>
-      {
-       recommendstate.bannerList.length
-      }
-    </div>
+    <RecommendWrapper>
+      <TopBanner />
+    </RecommendWrapper>
   );
 }
 
