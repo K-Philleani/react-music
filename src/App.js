@@ -6,6 +6,7 @@ import MusicAppFooter from "@/components/app-footer"
 import { HashRouter } from "react-router-dom"
 import { Provider } from 'react-redux'
 import store from '@/store'
+import PlayerBar from './pages/player/PlayerBar'
 
 const App = memo(() => {
   return (
@@ -14,6 +15,7 @@ const App = memo(() => {
         <MusicAppHeader />
         {renderRoutes(routes)}
         <MusicAppFooter />
+        <PlayerBar />
       </HashRouter>
     </Provider>
   );
