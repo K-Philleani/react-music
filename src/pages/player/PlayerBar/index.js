@@ -1,9 +1,25 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { PlayerWrapper, Control, PlayInfo, Operator } from './styled'
 import { Slider } from 'antd'
+import { getSongDetail } from '../store/actionCreator'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { getSizeImage, formatDate } from '@/utils/format-utils'
 
 
 const PlayerBar = memo(() => {
+  const dispatch = useDispatch()
+  const { currentSong } = useSelector(state => ({
+    currentSong: state.getIn(['player', 'currentSong'])
+  }), shallowEqual)
+
+  useEffect(() => {
+    dispatch(getSongDetail)
+  }, [dispatch])
+
+  const picUrl = currentSong.al && currentSong.al.picUrl
+  const singerName = currentSong.ar && currentSong.ar[0].name
+  const duration = currentSong.dt || 0
+  const formatDuration = formatDate(duration, 'mm:ss')
   return (
     <PlayerWrapper className="sprite_player">
       <div className="content wrap-v2">
@@ -16,20 +32,20 @@ const PlayerBar = memo(() => {
         <PlayInfo>
           <div className="image">
            <a href="">
-            <img src="https://p2.music.126.net/S9vpC0pua4NDmCfcZviFew==/109951165212014716.jpg?param=34y34" alt=""/>
+            <img src={getSizeImage(picUrl, 35)} alt=""/>
            </a>
           </div>
           <div className="info">
             <div className="song">
-              <span className="song-name">红豆</span>
-              <a href="#/" className="singer-name">要不要买菜</a>
+              <span className="song-name">{currentSong.name}</span>
+              <a href="#/" className="singer-name">{singerName}</a>
             </div>
             <div className="progress">
               <Slider defaultValue={30}  />
               <div className="time">
                 <span className="now-time">02:30</span>
                 <span className="divider">/</span>
-                <span className="duration">3:20</span>
+                <span className="duration">{formatDuration}</span>
               </div>
             </div>
           </div>
