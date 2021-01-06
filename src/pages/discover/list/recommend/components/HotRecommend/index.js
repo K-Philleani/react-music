@@ -3,6 +3,7 @@ import { HotRecommendWrapper } from './style'
 import ThemeHeader from '@/components/theme-header'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { getHotRecommendList } from '../../store/actionCreators'
+import SongsCover from '@/components/songs-cover'
 
 const HotRecommend = memo(() => {
 
@@ -23,7 +24,7 @@ const HotRecommend = memo(() => {
         {
           hotRecommends.map((item, index) => {
             return (
-              <div key={index}>{item.name}</div>
+              <SongsCover info={item} key={item.id} />
             )
           })
         }
