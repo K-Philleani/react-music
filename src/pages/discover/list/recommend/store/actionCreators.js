@@ -2,7 +2,6 @@ import axios from '@/service/request'
 
 
 export const changeBannerList = res => {
-  console.log(res)
   return {
      type: 'recommend/changeBannerList',
      res
@@ -10,7 +9,6 @@ export const changeBannerList = res => {
 }
 
 export const changeRecommendList = res => {
-  console.log(res)
   return {
     type: 'recommend/changeHotList',
     hotRecommends: res.result

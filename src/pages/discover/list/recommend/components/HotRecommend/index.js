@@ -15,7 +15,6 @@ const HotRecommend = memo(() => {
   useEffect(() => {
     dispatch(getHotRecommendList(8))
   }, [dispatch])
-  console.log(hotRecommends)
 
   return (
     <HotRecommendWrapper>
