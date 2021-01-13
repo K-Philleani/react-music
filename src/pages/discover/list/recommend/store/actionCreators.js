@@ -1,6 +1,6 @@
 import axios from '@/service/request'
 
-
+// 同步请求
 export const changeBannerList = res => {
   return {
      type: 'recommend/changeBannerList',
@@ -15,6 +15,15 @@ export const changeRecommendList = res => {
   }
 }
 
+export const setNewAlbumsList = res => {
+  return {
+    type: 'recommend/changeAlbumsList',
+    albumsList: res.albums
+  }
+}
+
+
+// 异步请求
 export const getBannerList = dispatch => {
   axios({
     url: '/banner'
@@ -32,3 +41,17 @@ export const getHotRecommendList = limit => {
     })
   }
 }
+export const getNewAlbumsList = limit => {
+  return dispatch => {
+    axios({
+      url: '/album/new',
+      params: {
+        area: 'ZH',
+        limit
+      }
+    }).then(res => {
+      dispatch(setNewAlbumsList(res))
+    })
+  }
+}
+

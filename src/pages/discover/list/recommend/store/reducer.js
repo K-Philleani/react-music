@@ -3,7 +3,8 @@ import { Map } from 'immutable'
 
 const defaultState = Map({
   bannerList: [],
-  hotRecommendList: []
+  hotRecommendList: [],
+  newAlbums: []
 })
 
 
@@ -13,6 +14,8 @@ const recommendReducer = (state = defaultState, action) => {
         return state.set("bannerList", action.res.banners)
       case 'recommend/changeHotList':
         return state.set("hotRecommendList", action.hotRecommends)
+      case 'recommend/changeAlbumsList':
+        return state.set('newAlbums', action.albumsList)
       default:
         return state
     }
